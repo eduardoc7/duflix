@@ -1,10 +1,21 @@
+
 import React from 'react';
 import Logo from '../../assets/img/Logo.png';
+import './Menu.css';
+import Button from '../Button';
 
-export default function menu(){
-    return (
-        <nav>
-            <img src="{Logo}" alt="Logo Duflix"/>
-        </nav>
-    )
+function Menu() {
+  return (
+    <nav className="Menu">
+      <a href="/">
+        <img className="Logo" src={Logo} alt="AluraFlix logo"/>
+      </a>
+
+      <Button as="a" className="ButtonLink" to="/cadastro/video">
+        Novo vídeo
+      </Button>
+    </nav>
+  );
 }
+
+export default Menu;
