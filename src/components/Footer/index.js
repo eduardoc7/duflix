@@ -5,7 +5,7 @@ import Icon from '../../assets/img/icon.png'
 function Footer() {
   return (
     <FooterBase>
-      <a href="https://www.github.com/EduardoCordeiro7/duflix" target="_blank">
+      <a href="https://www.github.com/eduardoc7/duflix" target="_blank" rel="noopener noreferrer">
         <img className="icon" src={Icon} alt="Logo Alura" />
       </a>
       <p> 
