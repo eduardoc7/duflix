@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
@@ -33,6 +33,39 @@ export default function CadastroCategoria() {
     );
   }
 
+  useEffect(() => {
+    const URL = window.location.hostname.includes('localhost')
+      ? 'http://localhost:8080/categorias'
+      : 'https://duflix.herokuapp.com/categorias';
+    fetch(URL)
+      .then(async (res) => {
+        const resposta = await res.json();
+        setCategorias([
+          ...resposta,
+        ]);
+      });
+
+    // setTimeout(() => {
+    //   setCategorias([
+    //     ...categorias,
+    //     {
+    //       id: 1,
+    //       nome: 'Front End',
+    //       descricao: 'Show',
+    //       cor: '#cbd1ff',
+    //     },
+    //     {
+    //       id: 2,
+    //       nome: 'Back End',
+    //       descricao: 'Outra Show',
+    //       cor: '#cbd1ff',
+    //     },
+    //   ]);
+    // }, 1 * 1000);
+  }, [
+
+  ]);
+
   return (
     <PageDefault>
       <h1>
@@ -56,7 +89,7 @@ export default function CadastroCategoria() {
           value={values.nome}
           onChange={handleChange}
         />
-        <FormField 
+        <FormField
           label="Descrição: "
           type="textarea"
           name="descricao"
@@ -75,6 +108,12 @@ export default function CadastroCategoria() {
           Cadastrar
         </Button>
       </form>
+
+      {categorias.length === 0 && (
+        <div><br/>
+          Carregando...
+        </div>
+      )}
 
       <ul>
         {categorias.map((categoria) => (
