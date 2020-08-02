@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
+import useForm from '../../../hooks/useForm';
 
 export default function CadastroCategoria() {
   const initialValues = {
@@ -11,27 +12,13 @@ export default function CadastroCategoria() {
     cor: '',
   };
 
+  const { values, handleChange, clearForm } = useForm(initialValues);
+
   // desestruturação de um array:
   // pois, o useState é uma função que retorna duas coisas:
   // 1 - o próprio valor inicial
   // 2 - a função 'set' que irá alterar esse valor quando for chamada
-  const [values, setValues] = useState(initialValues);
   const [categorias, setCategorias] = useState([]);
-
-  function setValue(key, value) {
-    setValues({
-      ...values,
-      [key]: value, // nome: 'valor'
-    });
-  }
-
-  function handleChange(event) {
-    const { value } = event.target;
-    setValue(
-      event.target.getAttribute('name'),
-      value,
-    );
-  }
 
   useEffect(() => {
     const URL = window.location.hostname.includes('localhost')
@@ -79,7 +66,7 @@ export default function CadastroCategoria() {
           ...categorias,
           values,
         ]);
-        setValues(initialValues);
+        clearForm(initialValues);
       }}
       >
         <FormField
@@ -117,8 +104,8 @@ export default function CadastroCategoria() {
 
       <ul>
         {categorias.map((categoria) => (
-          <li key={`${categoria.nome}`}>
-            {categoria.nome}
+          <li key={`${categoria.titulo}`}>
+            {categoria.titulo}
           </li>
         ))}
       </ul>
