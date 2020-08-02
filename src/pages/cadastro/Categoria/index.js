@@ -42,7 +42,7 @@ export default function CadastroCategoria() {
         const resposta = await res.json();
         setCategorias([
           ...resposta,
-        ]);
+        ]); 
       });
 
     // setTimeout(() => {
@@ -110,7 +110,7 @@ export default function CadastroCategoria() {
       </form>
 
       {categorias.length === 0 && (
-        <div><br/>
+        <div><br />
           Carregando...
         </div>
       )}

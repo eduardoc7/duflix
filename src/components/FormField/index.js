@@ -54,9 +54,13 @@ const Input = styled.input`
   transition: border-color .3s;
 
   &:focus {
-    border-bottom-color: var(--primary);
+    border-bottom-color: #2A2A57;
   }
 
+  &:focus:not([type='color']) + ${Label.Text} {
+    transform: scale(.6) translateY(-10px);
+  }
+  
   ${({ hasValue }) => hasValue && css`
     &:not([type="color"]) + span {
       transform: scale(.6) translateY(-10px);

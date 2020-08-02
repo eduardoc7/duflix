@@ -3,7 +3,7 @@
 
 Este projeto é uma plataforma de vídeos, onde serão cadastrados todos os vídeos que eu marquei como gostei, sendo dividido por categorias. O desenvolvimento aconteceu durante a Imersão React proposta pela [Alura](https://www.alura.com.br/).
 
-Link demo do projeto [duflix](duflix-pi.vercel.app/).
+Link demo do projeto [duflix](https://duflix-pi.vercel.app/).
 
 ---
 
