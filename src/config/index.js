@@ -1,6 +1,6 @@
 const URL_BACKEND = window.location.hostname.includes('localhost')
   ? 'http://localhost:8080'
-  : 'https://duflix.herokuapp.com/categorias';
+  : 'https://duflix.herokuapp.com';
 
 export default {
   URL_BACKEND,
